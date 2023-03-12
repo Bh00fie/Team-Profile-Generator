@@ -74,3 +74,34 @@ const getManager = () => {
         teamMembers();
     });
 }
+
+// Requesting Engineer Information
+const getEngineer = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the engineer?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee ID of the engineer?', 
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the employee email of the engineer?', 
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is the Github username of the engineer?', 
+        },
+    ]).then((response) => {
+        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+        console.table(engineer);
+        team.push(engineer);
+        teamMembers();
+    });
+}
