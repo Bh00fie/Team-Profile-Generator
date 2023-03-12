@@ -105,3 +105,34 @@ const getEngineer = () => {
         teamMembers();
     });
 }
+
+// Requesting Intern Information
+const getIntern = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the intern?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee ID of the intern?', 
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the employee email of the intern?', 
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Which school is the intern from?', 
+        },
+    ]).then((response) => {
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+        console.table(intern);
+        team.push(intern);
+        teamMembers();
+    });
+}
