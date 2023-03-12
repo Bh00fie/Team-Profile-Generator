@@ -136,3 +136,6 @@ const getIntern = () => {
         teamMembers();
     });
 }
+
+// Function to start application
+teamMembers()
