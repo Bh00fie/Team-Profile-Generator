@@ -43,3 +43,34 @@ const teamMembers = () => {
     });
 }
 
+
+// Requesting Manager Information
+const getManager = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the team manager?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee ID of the team manager?', 
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the employee email of the team manager?', 
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'What is the office number of the team manager?', 
+        },
+    ]).then((response) => {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+        console.table(manager);
+        team.push(manager);
+        teamMembers();
+    });
+}
